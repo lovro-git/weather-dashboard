@@ -1,0 +1,147 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.search-section {
+  padding: var(--space-lg) 0;
+}
+
+.weather-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  animation: fade-in-up 0.6s ease-out;
+}
+
+.weather-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.weather-main {
+  grid-column: 1;
+}
+
+.weather-sidebar {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* Empty state */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+  padding: var(--space-3xl) 0;
+}
+
+.empty-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  text-align: center;
+  animation: fade-in-up 0.6s ease-out;
+}
+
+.empty-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--accent-cool);
+  animation: float 4s ease-in-out infinite;
+}
+
+.empty-icon svg {
+  width: 48px;
+  height: 48px;
+}
+
+.empty-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.empty-text {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 400px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+  padding: var(--space-lg) var(--space-xl);
+  text-align: center;
+  border-top: 1px solid var(--glass-border);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.02) 0%,
+    transparent 100%
+  );
+}
+
+.footer span {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .weather-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .weather-main,
+  .weather-sidebar {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .main {
+    padding: var(--space-md);
+  }
+
+  .empty-title {
+    font-size: 1.5rem;
+  }
+
+  .empty-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .empty-icon svg {
+    width: 36px;
+    height: 36px;
+  }
+}
