@@ -30,7 +30,7 @@ React weather dashboard with current conditions, 5-day forecast, hourly temperat
 ```bash
 git clone https://github.com/lovro-git/weather-dashboard.git
 cd weather-dashboard
-npm install
+bun install
 ```
 
 ### API Key
@@ -53,9 +53,9 @@ VITE_OPENWEATHER_API_KEY=your_api_key
 ### Run
 
 ```bash
-npm run dev        # Development server at localhost:5173
-npm run build      # Production build to dist/
-npm run preview    # Preview production build
+bun run dev        # Development server at localhost:5173
+bun run build      # Production build to dist/
+bun run preview    # Preview production build
 ```
 
 ## Deploy
@@ -63,7 +63,7 @@ npm run preview    # Preview production build
 ### Vercel
 
 ```bash
-npm i -g vercel
+bun add -g vercel
 vercel
 ```
 
@@ -72,7 +72,7 @@ Add `VITE_OPENWEATHER_API_KEY` in Vercel dashboard → Settings → Environment 
 ### Netlify
 
 ```bash
-npm run build
+bun run build
 ```
 
 Drag `dist/` folder to [Netlify Drop](https://app.netlify.com/drop) or connect repo.
@@ -82,14 +82,14 @@ Add environment variable in Site Settings → Environment Variables.
 ### Docker
 
 ```dockerfile
-FROM node:18-alpine AS build
+FROM oven/bun:1 AS build
 WORKDIR /app
-COPY package*.json ./
-RUN npm ci
+COPY package.json bun.lock ./
+RUN bun install --frozen-lockfile
 COPY . .
 ARG VITE_OPENWEATHER_API_KEY
 ENV VITE_OPENWEATHER_API_KEY=$VITE_OPENWEATHER_API_KEY
-RUN npm run build
+RUN bun run build
 
 FROM nginx:alpine
 COPY --from=build /app/dist /usr/share/nginx/html
@@ -113,8 +113,8 @@ export default defineConfig({
 
 2. Build and deploy:
 ```bash
-npm run build
-npx gh-pages -d dist
+bun run build
+bunx gh-pages -d dist
 ```
 
 3. Set `VITE_OPENWEATHER_API_KEY` in repo Settings → Secrets → Actions.
