@@ -8,73 +8,78 @@
 .gradient {
   position: absolute;
   inset: 0;
-  transition: background 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background 2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .default {
   background: linear-gradient(
-    135deg,
-    #0a0a0f 0%,
-    #12121a 25%,
-    #1a1a2e 50%,
-    #16213e 75%,
-    #0f3460 100%
+    150deg,
+    #07070c 0%,
+    #0e0e18 20%,
+    #151528 45%,
+    #121832 65%,
+    #0c1a3a 85%,
+    #071430 100%
   );
 }
 
 .sunny {
   background: linear-gradient(
-    135deg,
-    #0a0a0f 0%,
-    #1a1520 20%,
-    #2e1a3e 40%,
-    #3e2a4a 60%,
-    #4a2a3a 80%,
-    #2a1a1a 100%
+    150deg,
+    #07070c 0%,
+    #14101c 15%,
+    #261830 35%,
+    #352240 55%,
+    #3a2538 75%,
+    #201818 100%
   );
 }
 
 .cloudy {
   background: linear-gradient(
-    135deg,
-    #0a0a0f 0%,
-    #14141c 25%,
-    #1e1e28 50%,
-    #282834 75%,
-    #1a1a24 100%
+    150deg,
+    #07070c 0%,
+    #101016 20%,
+    #181820 40%,
+    #20202c 60%,
+    #181820 80%,
+    #0e0e14 100%
   );
 }
 
 .rain {
   background: linear-gradient(
-    135deg,
-    #050810 0%,
-    #0c1929 25%,
-    #142a44 50%,
-    #1a3a5a 75%,
-    #0c1929 100%
+    150deg,
+    #040610 0%,
+    #081420 20%,
+    #0e2038 40%,
+    #142e4e 60%,
+    #0e2038 80%,
+    #081420 100%
   );
 }
 
 .storm {
   background: linear-gradient(
-    135deg,
-    #05050a 0%,
-    #0a0a14 25%,
-    #141428 50%,
-    #1e1e38 75%,
-    #0a0a14 100%
+    150deg,
+    #040408 0%,
+    #080810 20%,
+    #101020 40%,
+    #181830 60%,
+    #101020 80%,
+    #080810 100%
   );
 }
 
 .snow {
   background: linear-gradient(
-    135deg,
-    #0f1520 0%,
-    #1a2535 25%,
-    #253545 50%,
-    #304555 75%,
-    #1a2535 100%
+    150deg,
+    #0c1018 0%,
+    #14202e 20%,
+    #1e3040 40%,
+    #284050 60%,
+    #1e3040 80%,
+    #14202e 100%
   );
 }
 
@@ -82,23 +87,23 @@
   position: absolute;
   inset: 0;
   background: radial-gradient(
-    ellipse 80% 50% at 50% 0%,
-    var(--accent, #4ecdc4) 0%,
+    ellipse 60% 35% at 50% 0%,
+    rgba(91, 216, 207, 0.12) 0%,
     transparent 50%
   );
-  filter: blur(80px);
-  opacity: 0.3;
-  animation: aurora-pulse 8s ease-in-out infinite;
+  filter: blur(120px);
+  opacity: 0.1;
+  animation: aurora-pulse 10s ease-in-out infinite;
 }
 
 @keyframes aurora-pulse {
   0%, 100% {
-    opacity: 0.2;
+    opacity: 0.08;
     transform: scale(1) translateY(0);
   }
   50% {
-    opacity: 0.35;
-    transform: scale(1.1) translateY(-20px);
+    opacity: 0.14;
+    transform: scale(1.05) translateY(-10px);
   }
 }
 
@@ -111,39 +116,39 @@
 
 .orb {
   position: absolute;
-  width: 400px;
-  height: 400px;
+  width: 450px;
+  height: 450px;
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    var(--color, rgba(78, 205, 196, 0.15)) 0%,
+    var(--color, rgba(91, 216, 207, 0.06)) 0%,
     transparent 70%
   );
-  filter: blur(60px);
-  top: 10%;
-  left: 20%;
+  filter: blur(100px);
+  top: 8%;
+  left: 18%;
 }
 
 .orb2 {
-  --color: rgba(168, 85, 247, 0.12);
+  --color: rgba(155, 127, 240, 0.05);
   width: 500px;
   height: 500px;
-  top: 40%;
-  left: 60%;
+  top: 35%;
+  left: 55%;
 }
 
 .orb3 {
-  --color: rgba(251, 191, 36, 0.08);
-  width: 350px;
-  height: 350px;
-  top: 70%;
-  left: 10%;
+  --color: rgba(91, 216, 207, 0.03);
+  width: 380px;
+  height: 380px;
+  top: 65%;
+  left: 8%;
 }
 
 .particles {
   position: absolute;
   inset: 0;
-  opacity: 0.6;
+  opacity: 0.5;
   pointer-events: none;
 }
 
@@ -151,7 +156,7 @@
   position: absolute;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  opacity: 0.03;
+  opacity: 0.025;
   pointer-events: none;
   mix-blend-mode: overlay;
 }
@@ -162,8 +167,8 @@
   background: radial-gradient(
     ellipse at center,
     transparent 0%,
-    transparent 50%,
-    rgba(0, 0, 0, 0.4) 100%
+    transparent 40%,
+    rgba(0, 0, 0, 0.5) 100%
   );
   pointer-events: none;
 }

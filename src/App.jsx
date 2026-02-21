@@ -10,6 +10,7 @@ import { LoadingState } from './components/LoadingState';
 import { ErrorState } from './components/ErrorState';
 import { WeatherBackground } from './components/WeatherBackground';
 import { WeatherDetails } from './components/WeatherDetails';
+import { WeatherSummary } from './components/WeatherSummary';
 import { useWeather } from './hooks/useWeather';
 import { useForecast } from './hooks/useForecast';
 import { useGeolocation } from './hooks/useGeolocation';
@@ -94,19 +95,22 @@ function App() {
           ) : weather ? (
             <div className="weather-content" key="content">
               <div className="weather-grid">
-                <div className="weather-main">
-                  <CurrentWeather
-                    weather={weather}
-                    units={units}
-                    isFavorite={isFavorite(weather.name)}
-                    onToggleFavorite={handleToggleFavorite}
-                  />
-                </div>
+                <CurrentWeather
+                  weather={weather}
+                  units={units}
+                  isFavorite={isFavorite(weather.name)}
+                  onToggleFavorite={handleToggleFavorite}
+                />
 
-                <div className="weather-sidebar">
-                  <HourlyChart hourlyForecast={hourlyForecast} units={units} />
-                  <Forecast dailyForecast={dailyForecast} units={units} />
-                </div>
+                <HourlyChart hourlyForecast={hourlyForecast} units={units} />
+
+                <WeatherSummary
+                  weather={weather}
+                  dailyForecast={dailyForecast}
+                  units={units}
+                />
+
+                <Forecast dailyForecast={dailyForecast} units={units} />
               </div>
 
               <WeatherDetails

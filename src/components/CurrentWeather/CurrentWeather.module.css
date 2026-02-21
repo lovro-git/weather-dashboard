@@ -1,34 +1,50 @@
 .card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
-  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: var(--radius-xl);
-  padding: var(--space-xl);
+  padding: var(--space-xl) var(--space-xl) var(--space-lg);
   position: relative;
   overflow: hidden;
 }
 
+/* Subtle top edge highlight */
 .card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 20%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(91, 216, 207, 0.15),
+    rgba(155, 127, 240, 0.1),
+    transparent
+  );
+}
+
+/* Inner glow */
+.card::after {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.1),
-    transparent
-  );
+  height: 120px;
+  background: linear-gradient(180deg, rgba(91, 216, 207, 0.03), transparent);
+  pointer-events: none;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-lg);
+  position: relative;
+  z-index: 1;
 }
 
 .location {
@@ -41,16 +57,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-md);
-  background: rgba(78, 205, 196, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(91, 216, 207, 0.08);
   color: var(--accent-cool);
 }
 
 .locationPin svg {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
 }
 
 .locationText {
@@ -60,19 +76,20 @@
 
 .cityName {
   font-family: var(--font-display);
-  font-size: 1.75rem;
+  font-size: 1.65rem;
   font-weight: 400;
   color: var(--text-primary);
   margin: 0;
   line-height: 1.1;
+  letter-spacing: -0.01em;
 }
 
 .country {
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--text-tertiary);
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--text-ghost);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   margin-top: 4px;
 }
 
@@ -80,45 +97,47 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-md);
-  background: var(--glass-bg);
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  background: transparent;
   color: var(--text-tertiary);
   cursor: pointer;
   transition: all var(--transition-fast);
 }
 
 .favoriteBtn:hover {
-  border-color: var(--accent-glow);
+  border-color: rgba(232, 197, 80, 0.3);
   color: var(--accent-glow);
 }
 
 .favoriteBtn.active {
-  border-color: var(--accent-glow);
+  border-color: rgba(232, 197, 80, 0.25);
   color: var(--accent-glow);
-  background: rgba(251, 191, 36, 0.1);
+  background: rgba(232, 197, 80, 0.06);
 }
 
 .favoriteBtn svg {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
 }
 
 .mainDisplay {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-lg);
-  margin-bottom: var(--space-2xl);
-  padding: var(--space-xl) 0;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xl);
+  padding: var(--space-lg) 0;
+  position: relative;
+  z-index: 1;
 }
 
 .weatherIcon {
-  width: 120px;
-  height: 120px;
-  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+  width: 110px;
+  height: 110px;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.25));
 }
 
 .temperatureDisplay {
@@ -134,70 +153,81 @@
 
 .tempNumber {
   font-family: var(--font-display);
-  font-size: 6rem;
+  font-size: 5.5rem;
   font-weight: 400;
   color: var(--text-primary);
-  line-height: 0.9;
-  letter-spacing: -0.02em;
+  line-height: 0.85;
+  letter-spacing: -0.03em;
 }
 
 .tempUnit {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 400;
-  color: var(--text-secondary);
+  color: var(--text-tertiary);
   margin-top: 0.5rem;
 }
 
 .condition {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
   margin-top: var(--space-sm);
 }
 
 .conditionText {
-  font-size: 1.1rem;
+  font-size: 1rem;
+  font-weight: 300;
   color: var(--text-secondary);
   text-transform: capitalize;
 }
 
 .feelsLike {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 300;
   color: var(--text-tertiary);
 }
 
+/* Gauges — refined instrument style */
 .gauges {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-md);
+  gap: var(--space-sm);
+  position: relative;
+  z-index: 1;
 }
 
 .gauge {
   display: flex;
   align-items: flex-start;
-  gap: var(--space-md);
-  padding: var(--space-md);
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(255, 255, 255, 0.03);
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: rgba(255, 255, 255, 0.015);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.025);
+  transition: border-color var(--transition-fast);
+}
+
+.gauge:hover {
+  border-color: rgba(255, 255, 255, 0.06);
 }
 
 .gaugeIcon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.03);
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.02);
   color: var(--text-tertiary);
   flex-shrink: 0;
 }
 
 .gaugeIcon svg {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
+  opacity: 0.7;
 }
 
 .gaugeContent {
@@ -209,33 +239,34 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .gaugeLabel {
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-size: 0.6rem;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-tertiary);
+  letter-spacing: 0.1em;
+  color: var(--text-ghost);
 }
 
 .gaugeValue {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--text-primary);
 }
 
 .gaugeUnit {
   font-family: var(--font-body);
-  font-size: 0.7rem;
+  font-size: 0.6rem;
+  font-weight: 300;
   color: var(--text-tertiary);
   margin-left: 2px;
 }
 
 .gaugeBar {
-  height: 4px;
-  background: rgba(255, 255, 255, 0.05);
+  height: 3px;
+  background: rgba(255, 255, 255, 0.04);
   border-radius: var(--radius-full);
   overflow: hidden;
 }
@@ -253,14 +284,14 @@
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   background: white;
   border-radius: 50%;
-  box-shadow: 0 0 10px rgba(78, 205, 196, 0.8);
+  box-shadow: 0 0 8px rgba(91, 216, 207, 0.6);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
   .card {
     padding: var(--space-lg);
   }
@@ -271,16 +302,16 @@
   }
 
   .weatherIcon {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
   }
 
   .tempNumber {
-    font-size: 4.5rem;
+    font-size: 4rem;
   }
 
   .tempUnit {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 
   .temperatureDisplay {

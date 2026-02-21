@@ -1,29 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@200;300;400;500;600;700&display=swap');
 
 :root {
   /* Core palette - deep atmospheric tones */
-  --color-void: #0a0a0f;
-  --color-deep: #12121a;
-  --color-surface: #1a1a24;
-  --color-elevated: #242432;
-  --color-muted: #3a3a4a;
+  --color-void: #07070c;
+  --color-deep: #0e0e16;
+  --color-surface: #16161f;
+  --color-elevated: #1e1e2a;
+  --color-muted: #2e2e3e;
 
   /* Glass effects */
-  --glass-bg: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-highlight: rgba(255, 255, 255, 0.12);
+  --glass-bg: rgba(255, 255, 255, 0.025);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-highlight: rgba(255, 255, 255, 0.1);
 
   /* Text hierarchy */
-  --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --text-tertiary: rgba(255, 255, 255, 0.4);
-  --text-ghost: rgba(255, 255, 255, 0.2);
+  --text-primary: #f0ede8;
+  --text-secondary: rgba(240, 237, 232, 0.65);
+  --text-tertiary: rgba(240, 237, 232, 0.35);
+  --text-ghost: rgba(240, 237, 232, 0.15);
 
-  /* Accent colors - aurora inspired */
-  --accent-warm: #ff6b35;
-  --accent-cool: #4ecdc4;
-  --accent-electric: #a855f7;
-  --accent-glow: #fbbf24;
+  /* Accent colors — refined meteorological palette */
+  --accent-warm: #e8724a;
+  --accent-cool: #5bd8cf;
+  --accent-electric: #9b7ff0;
+  --accent-glow: #e8c550;
 
   /* Weather-specific gradients */
   --gradient-clear: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
@@ -42,9 +42,9 @@
   --space-2xl: 3rem;
   --space-3xl: 4rem;
 
-  /* Typography */
-  --font-display: 'DM Serif Display', Georgia, serif;
-  --font-body: 'Space Grotesk', system-ui, sans-serif;
+  /* Typography — Instrument Serif for display, Outfit for body */
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Outfit', system-ui, sans-serif;
 
   /* Transitions */
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -59,9 +59,9 @@
 
   /* Border radius */
   --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --radius-xl: 32px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 28px;
   --radius-full: 9999px;
 }
 
@@ -131,8 +131,8 @@ body {
 /* Glass panel utility */
 .glass-panel {
   background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
 }
@@ -143,6 +143,36 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Section label utility — editorial numbered markers */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-ghost);
+  margin-bottom: var(--space-lg);
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--glass-highlight);
+}
+
+.section-label::after {
+  content: '';
+  display: block;
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--glass-border), transparent);
 }
 
 /* Hide scrollbar but keep functionality */

@@ -94,20 +94,18 @@ export function WeatherBackground({ weatherMain, accentColor }) {
         transition={{ duration: 1.5 }}
       />
 
-      {/* Aurora glow effect */}
+      {/* Aurora glow effect — static cool tone, no dynamic accent */}
       <motion.div
         className={styles.aurora}
-        style={{ '--accent': accentColor }}
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.3 }}
+        animate={{ opacity: 0.1 }}
         transition={{ duration: 2 }}
       />
 
-      {/* Animated orbs */}
+      {/* Animated orbs — all cool-toned, no dynamic color */}
       <div className={styles.orbs}>
         <motion.div
           className={styles.orb}
-          style={{ '--color': accentColor }}
           animate={{
             x: [0, 100, 0],
             y: [0, -50, 0],

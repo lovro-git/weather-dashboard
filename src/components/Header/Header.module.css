@@ -2,13 +2,24 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--space-lg) var(--space-xl);
+  padding: var(--space-md) var(--space-2xl);
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.03) 0%,
     transparent 100%
   );
-  border-bottom: 1px solid var(--glass-border);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  position: relative;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(91, 216, 207, 0.12), rgba(155, 127, 240, 0.08), transparent);
 }
 
 .brand {
@@ -18,10 +29,11 @@
 }
 
 .logoMark {
-  width: 48px;
-  height: 48px;
+  width: 42px;
+  height: 42px;
   color: var(--accent-cool);
-  filter: drop-shadow(0 0 10px currentColor);
+  filter: drop-shadow(0 0 8px rgba(91, 216, 207, 0.3));
+  opacity: 0.85;
 }
 
 .logoMark svg {
@@ -38,19 +50,20 @@
   font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 400;
+  font-style: italic;
   color: var(--text-primary);
   margin: 0;
-  letter-spacing: 0.02em;
+  letter-spacing: 0;
   line-height: 1.1;
 }
 
 .subtitle {
-  font-size: 0.7rem;
-  font-weight: 500;
-  color: var(--text-tertiary);
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: var(--text-ghost);
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  margin-top: 2px;
+  letter-spacing: 0.25em;
+  margin-top: 3px;
 }
 
 .controls {
@@ -63,9 +76,9 @@
   display: flex;
   align-items: center;
   gap: 2px;
-  padding: 4px;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
+  padding: 3px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: var(--radius-md);
 }
 
@@ -79,9 +92,9 @@
   background: transparent;
   color: var(--text-tertiary);
   cursor: pointer;
-  border-radius: var(--radius-sm);
+  border-radius: calc(var(--radius-md) - 3px);
   transition: all var(--transition-fast);
-  min-width: 70px;
+  min-width: 64px;
 }
 
 .unitBtn:hover {
@@ -91,36 +104,43 @@
 
 .unitBtn.active {
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 .unitSymbol {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   line-height: 1;
 }
 
 .unitLabel {
-  font-size: 0.6rem;
-  font-weight: 500;
+  font-size: 0.55rem;
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  opacity: 0.7;
+  letter-spacing: 0.12em;
+  opacity: 0.6;
 }
 
 .divider {
   width: 1px;
-  height: 32px;
-  background: var(--glass-border);
+  height: 28px;
+  background: rgba(255, 255, 255, 0.05);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .header {
-    padding: var(--space-md);
+    padding: var(--space-md) var(--space-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: var(--space-sm) var(--space-md);
   }
 
   .title {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
 
   .subtitle {
@@ -128,8 +148,8 @@
   }
 
   .logoMark {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
   }
 
   .unitLabel {
@@ -137,6 +157,6 @@
   }
 
   .unitBtn {
-    min-width: 50px;
+    min-width: 46px;
   }
 }

@@ -16,47 +16,47 @@
 
 .orbits {
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
 }
 
 .orbit {
   position: absolute;
   inset: 0;
-  border: 1px solid rgba(78, 205, 196, 0.2);
+  border: 1px solid rgba(91, 216, 207, 0.12);
   border-radius: 50%;
 }
 
 .orbit2 {
-  inset: 15px;
-  border-color: rgba(168, 85, 247, 0.2);
+  inset: 14px;
+  border-color: rgba(155, 127, 240, 0.12);
 }
 
 .orbit3 {
-  inset: 30px;
-  border-color: rgba(251, 191, 36, 0.2);
+  inset: 28px;
+  border-color: rgba(232, 197, 80, 0.12);
 }
 
 .dot {
   position: absolute;
-  top: -4px;
+  top: -3px;
   left: 50%;
   transform: translateX(-50%);
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   background: var(--accent-cool);
   border-radius: 50%;
-  box-shadow: 0 0 20px var(--accent-cool);
+  box-shadow: 0 0 14px var(--accent-cool);
 }
 
 .orbit2 .dot {
   background: var(--accent-electric);
-  box-shadow: 0 0 20px var(--accent-electric);
+  box-shadow: 0 0 14px var(--accent-electric);
 }
 
 .orbit3 .dot {
   background: var(--accent-glow);
-  box-shadow: 0 0 20px var(--accent-glow);
+  box-shadow: 0 0 14px var(--accent-glow);
 }
 
 .text {
@@ -66,13 +66,13 @@
 }
 
 .label {
-  font-size: 0.85rem;
-  font-weight: 500;
+  font-size: 0.8rem;
+  font-weight: 300;
   color: var(--text-secondary);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
 }
 
 .dots {
-  font-size: 0.85rem;
-  color: var(--text-tertiary);
+  font-size: 0.8rem;
+  color: var(--text-ghost);
 }

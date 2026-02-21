@@ -1,8 +1,8 @@
 .container {
-  background: var(--glass-bg);
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
-  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.015);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
   border-radius: var(--radius-xl);
   padding: var(--space-xl);
   position: relative;
@@ -12,13 +12,14 @@
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
+  left: 15%;
+  right: 15%;
   height: 1px;
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.1),
+    rgba(155, 127, 240, 0.1),
+    rgba(91, 216, 207, 0.08),
     transparent
   );
 }
@@ -29,23 +30,32 @@
 
 .title {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 400;
   color: var(--text-primary);
   margin: 0;
 }
 
+/* Bento grid — mixed sizing for visual interest */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--space-md);
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-sm);
 }
 
 .card {
   background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--glass-border);
+  border: 1px solid rgba(255, 255, 255, 0.035);
   border-radius: var(--radius-md);
   padding: var(--space-md);
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.card:hover {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.06);
+  transform: translateY(-1px);
 }
 
 .cardHeader {
@@ -56,9 +66,10 @@
 }
 
 .cardIcon {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   color: var(--accent-cool);
+  opacity: 0.8;
 }
 
 .cardIcon svg {
@@ -67,11 +78,11 @@
 }
 
 .cardLabel {
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 0.6rem;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-tertiary);
+  letter-spacing: 0.1em;
+  color: var(--text-ghost);
 }
 
 /* Sun Times */
@@ -88,9 +99,10 @@
 }
 
 .sunTime svg {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   color: var(--accent-glow);
+  opacity: 0.7;
 }
 
 .sunTime > div {
@@ -99,30 +111,31 @@
 }
 
 .sunLabel {
-  font-size: 0.65rem;
-  color: var(--text-tertiary);
+  font-size: 0.55rem;
+  color: var(--text-ghost);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
 }
 
 .sunValue {
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--text-primary);
 }
 
 .dayLength {
   display: flex;
   justify-content: space-between;
-  font-size: 0.75rem;
-  color: var(--text-tertiary);
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: var(--text-ghost);
   padding-top: var(--space-sm);
-  border-top: 1px solid var(--glass-border);
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 .dayLengthValue {
   color: var(--text-secondary);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 /* UV Index */
@@ -133,35 +146,36 @@
 
 .uvValue {
   font-family: var(--font-display);
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   line-height: 1;
 }
 
 .uvLevel {
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 500;
   margin-top: 4px;
 }
 
 .uvDesc {
-  font-size: 0.7rem;
-  color: var(--text-tertiary);
-  margin-top: 4px;
+  font-size: 0.65rem;
+  font-weight: 300;
+  color: var(--text-ghost);
+  margin-top: 3px;
 }
 
 .uvScale {
   display: flex;
   justify-content: center;
-  gap: 6px;
+  gap: 5px;
   padding-top: var(--space-sm);
-  border-top: 1px solid var(--glass-border);
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 .uvDot {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
   transition: all var(--transition-fast);
 }
 
@@ -185,13 +199,14 @@
 
 .windSpeed {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: 1.85rem;
   color: var(--text-primary);
 }
 
 .windUnit {
-  font-size: 0.8rem;
-  color: var(--text-tertiary);
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: var(--text-ghost);
 }
 
 .windCompass {
@@ -202,9 +217,10 @@
 }
 
 .compassArrow {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   color: var(--accent-cool);
+  opacity: 0.8;
 }
 
 .compassArrow svg {
@@ -213,16 +229,18 @@
 }
 
 .windDirection {
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-size: 0.6rem;
+  font-weight: 500;
   color: var(--text-secondary);
+  letter-spacing: 0.02em;
 }
 
 .windGust {
-  font-size: 0.7rem;
-  color: var(--text-tertiary);
+  font-size: 0.65rem;
+  font-weight: 300;
+  color: var(--text-ghost);
   padding-top: var(--space-sm);
-  border-top: 1px solid var(--glass-border);
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 /* Air Quality */
@@ -239,24 +257,25 @@
 
 .aqiValue {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: 1.85rem;
 }
 
 .aqiLevel {
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 500;
 }
 
 .aqiDesc {
-  font-size: 0.7rem;
-  color: var(--text-tertiary);
+  font-size: 0.65rem;
+  font-weight: 300;
+  color: var(--text-ghost);
 }
 
 .aqiComponents {
   display: flex;
   gap: var(--space-md);
   padding-top: var(--space-sm);
-  border-top: 1px solid var(--glass-border);
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 .aqiComponent {
@@ -265,16 +284,16 @@
 }
 
 .aqiComponentLabel {
-  font-size: 0.6rem;
-  font-weight: 600;
-  color: var(--text-tertiary);
+  font-size: 0.55rem;
+  font-weight: 500;
+  color: var(--text-ghost);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
 }
 
 .aqiComponentValue {
   font-family: var(--font-display);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
 }
 
@@ -293,24 +312,26 @@
 
 .precipValue {
   font-family: var(--font-display);
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   line-height: 1;
 }
 
 .precipUnit {
-  font-size: 0.8rem;
-  color: var(--text-tertiary);
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: var(--text-ghost);
 }
 
 .precipLevel {
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 500;
   margin-top: 4px;
 }
 
 .precipType {
-  font-size: 0.7rem;
-  color: var(--text-tertiary);
+  font-size: 0.65rem;
+  font-weight: 300;
+  color: var(--text-ghost);
   margin-top: 2px;
 }
 
@@ -319,15 +340,15 @@
 }
 
 .precipMeterTrack {
-  height: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
   overflow: hidden;
 }
 
 .precipMeterFill {
   height: 100%;
-  border-radius: 4px;
+  border-radius: 3px;
   transition: width 0.5s ease-out;
   position: relative;
 }
@@ -342,7 +363,7 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.25),
     transparent
   );
   animation: shimmer 2s infinite;
@@ -357,8 +378,9 @@
   display: flex;
   justify-content: space-between;
   margin-top: 4px;
-  font-size: 0.55rem;
-  color: var(--text-tertiary);
+  font-size: 0.5rem;
+  font-weight: 300;
+  color: var(--text-ghost);
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
@@ -366,22 +388,23 @@
 .precipForecast {
   display: flex;
   justify-content: space-between;
-  font-size: 0.75rem;
-  color: var(--text-tertiary);
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: var(--text-ghost);
   padding-top: var(--space-sm);
-  border-top: 1px solid var(--glass-border);
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 .precipForecastValue {
   color: var(--text-secondary);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 /* Stats Grid */
 .statsGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-md);
+  gap: var(--space-sm);
 }
 
 .statItem {
@@ -391,16 +414,16 @@
 }
 
 .statLabel {
-  font-size: 0.65rem;
-  font-weight: 500;
+  font-size: 0.55rem;
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-tertiary);
+  letter-spacing: 0.06em;
+  color: var(--text-ghost);
 }
 
 .statValue {
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--text-primary);
 }
 
@@ -408,28 +431,36 @@
 .suggestions {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: var(--space-xs);
 }
 
 .suggestion {
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  padding: var(--space-sm);
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: var(--radius-sm);
+  padding: 6px var(--space-sm);
+  background: rgba(255, 255, 255, 0.015);
+  border-radius: 8px;
 }
 
 .suggestionIcon {
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .suggestionText {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 300;
   color: var(--text-secondary);
 }
 
-@media (max-width: 600px) {
+/* Responsive */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
   .container {
     padding: var(--space-lg);
   }

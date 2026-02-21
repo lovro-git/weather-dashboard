@@ -63,14 +63,14 @@ export function HourlyChart({ hourlyForecast, units }) {
           <AreaChart data={data} margin={{ top: 20, right: 10, left: -20, bottom: 0 }}>
             <defs>
               <linearGradient id="tempGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="rgba(78, 205, 196, 0.4)" />
-                <stop offset="50%" stopColor="rgba(168, 85, 247, 0.2)" />
-                <stop offset="100%" stopColor="rgba(168, 85, 247, 0)" />
+                <stop offset="0%" stopColor="rgba(91, 216, 207, 0.3)" />
+                <stop offset="50%" stopColor="rgba(155, 127, 240, 0.12)" />
+                <stop offset="100%" stopColor="rgba(155, 127, 240, 0)" />
               </linearGradient>
               <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="#4ecdc4" />
-                <stop offset="50%" stopColor="#a855f7" />
-                <stop offset="100%" stopColor="#ff6b35" />
+                <stop offset="0%" stopColor="#5bd8cf" />
+                <stop offset="50%" stopColor="#9b7ff0" />
+                <stop offset="100%" stopColor="#e8724a" />
               </linearGradient>
             </defs>
             <XAxis
@@ -78,9 +78,9 @@ export function HourlyChart({ hourlyForecast, units }) {
               axisLine={false}
               tickLine={false}
               tick={{
-                fill: 'rgba(255, 255, 255, 0.4)',
+                fill: 'rgba(240, 237, 232, 0.3)',
                 fontSize: 11,
-                fontFamily: 'Space Grotesk'
+                fontFamily: 'Outfit'
               }}
               dy={10}
               interval={0}
@@ -90,16 +90,16 @@ export function HourlyChart({ hourlyForecast, units }) {
               axisLine={false}
               tickLine={false}
               tick={{
-                fill: 'rgba(255, 255, 255, 0.3)',
+                fill: 'rgba(240, 237, 232, 0.25)',
                 fontSize: 11,
-                fontFamily: 'Space Grotesk'
+                fontFamily: 'Outfit'
               }}
               tickFormatter={(value) => `${Math.round(value)}°`}
               width={35}
             />
             <Tooltip
               content={<CustomTooltip units={units} />}
-              cursor={{ stroke: 'rgba(255, 255, 255, 0.1)', strokeWidth: 1 }}
+              cursor={{ stroke: 'rgba(240, 237, 232, 0.06)', strokeWidth: 1 }}
             />
             <Area
               type="monotone"
@@ -110,8 +110,8 @@ export function HourlyChart({ hourlyForecast, units }) {
               dot={false}
               activeDot={{
                 r: 6,
-                fill: '#ffffff',
-                stroke: '#4ecdc4',
+                fill: '#f0ede8',
+                stroke: '#5bd8cf',
                 strokeWidth: 2
               }}
             />

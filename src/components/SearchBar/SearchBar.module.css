@@ -1,7 +1,7 @@
 .container {
   position: relative;
   width: 100%;
-  max-width: 480px;
+  max-width: 520px;
   margin: 0 auto;
 }
 
@@ -9,22 +9,23 @@
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  padding: var(--space-sm) var(--space-md);
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
+  padding: var(--space-xs) var(--space-md);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: var(--radius-xl);
   transition: all var(--transition-base);
 }
 
 .searchBox:hover {
-  border-color: var(--glass-highlight);
-  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .searchBox.focused {
-  border-color: var(--accent-cool);
+  border-color: rgba(91, 216, 207, 0.25);
+  background: rgba(255, 255, 255, 0.03);
   box-shadow:
-    0 0 0 3px rgba(78, 205, 196, 0.1),
+    0 0 0 3px rgba(91, 216, 207, 0.06),
     0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
@@ -33,20 +34,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   flex-shrink: 0;
 }
 
 .iconWrapper svg {
-  width: 20px;
-  height: 20px;
-  color: var(--text-tertiary);
+  width: 18px;
+  height: 18px;
+  color: var(--text-ghost);
 }
 
 .loadingRing {
   position: absolute;
-  inset: 4px;
+  inset: 5px;
   border: 2px solid transparent;
   border-top-color: var(--accent-cool);
   border-radius: 50%;
@@ -63,14 +64,15 @@
   background: transparent;
   color: var(--text-primary);
   font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 0.95rem;
+  font-weight: 300;
   outline: none;
   min-width: 0;
 }
 
 .input::placeholder {
-  color: var(--text-tertiary);
+  color: var(--text-ghost);
+  font-weight: 300;
 }
 
 .actions {
@@ -83,35 +85,35 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border: none;
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text-secondary);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-tertiary);
   cursor: pointer;
   transition: all var(--transition-fast);
 }
 
 .locationBtn:hover:not(:disabled) {
-  background: rgba(78, 205, 196, 0.15);
+  background: rgba(91, 216, 207, 0.1);
   color: var(--accent-cool);
 }
 
 .locationBtn:disabled {
-  opacity: 0.5;
+  opacity: 0.4;
   cursor: not-allowed;
 }
 
 .locationBtn svg {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
 }
 
 .spinner {
-  width: 18px;
-  height: 18px;
-  border: 2px solid var(--glass-border);
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.06);
   border-top-color: var(--accent-cool);
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -122,13 +124,13 @@
   top: calc(100% + var(--space-sm));
   left: 0;
   right: 0;
-  background: rgba(18, 18, 26, 0.98);
-  backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
+  background: rgba(14, 14, 22, 0.97);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--radius-lg);
   box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+    0 20px 60px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.03) inset;
   overflow: hidden;
   z-index: 100;
 }
@@ -138,22 +140,22 @@
   align-items: center;
   justify-content: space-between;
   padding: var(--space-sm) var(--space-md);
-  border-bottom: 1px solid var(--glass-border);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .dropdownLabel {
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-size: 0.6rem;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-tertiary);
+  letter-spacing: 0.12em;
+  color: var(--text-ghost);
 }
 
 .dropdownCount {
-  font-size: 0.65rem;
-  font-weight: 600;
+  font-size: 0.6rem;
+  font-weight: 500;
   color: var(--accent-cool);
-  background: rgba(78, 205, 196, 0.1);
+  background: rgba(91, 216, 207, 0.08);
   padding: 2px 8px;
   border-radius: var(--radius-full);
 }
@@ -171,44 +173,44 @@
   align-items: center;
   gap: var(--space-md);
   width: 100%;
-  padding: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
   border: none;
   background: transparent;
   color: var(--text-primary);
   cursor: pointer;
-  border-radius: var(--radius-md);
+  border-radius: 10px;
   transition: all var(--transition-fast);
   text-align: left;
 }
 
 .suggestion:hover,
 .suggestion.selected {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .suggestion.selected {
-  background: rgba(78, 205, 196, 0.08);
+  background: rgba(91, 216, 207, 0.06);
 }
 
 .suggestionIcon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.03);
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.02);
   flex-shrink: 0;
 }
 
 .suggestionIcon svg {
-  width: 18px;
-  height: 18px;
-  color: var(--text-tertiary);
+  width: 16px;
+  height: 16px;
+  color: var(--text-ghost);
 }
 
 .suggestion.selected .suggestionIcon {
-  background: rgba(78, 205, 196, 0.1);
+  background: rgba(91, 216, 207, 0.08);
 }
 
 .suggestion.selected .suggestionIcon svg {
@@ -222,15 +224,16 @@
 
 .cityName {
   display: block;
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 400;
   color: var(--text-primary);
 }
 
 .cityRegion {
   display: block;
-  font-size: 0.75rem;
-  color: var(--text-tertiary);
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: var(--text-ghost);
   margin-top: 2px;
 }
 
@@ -242,14 +245,14 @@
 
 .suggestion:hover .suggestionArrow,
 .suggestion.selected .suggestionArrow {
-  opacity: 0.5;
+  opacity: 0.4;
   transform: translateX(0);
 }
 
 .suggestionArrow svg {
-  width: 16px;
-  height: 16px;
-  color: var(--text-tertiary);
+  width: 14px;
+  height: 14px;
+  color: var(--text-ghost);
 }
 
 @media (max-width: 480px) {
@@ -258,6 +261,6 @@
   }
 
   .input {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 }

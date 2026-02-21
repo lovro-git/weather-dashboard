@@ -8,41 +8,44 @@
 .main {
   flex: 1;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1320px;
   margin: 0 auto;
-  padding: var(--space-xl);
+  padding: var(--space-xl) var(--space-2xl);
   display: flex;
   flex-direction: column;
-  gap: var(--space-xl);
+  gap: var(--space-2xl);
 }
 
 .search-section {
-  padding: var(--space-lg) 0;
+  padding: var(--space-xl) 0 var(--space-md);
 }
 
 .weather-content {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xl);
-  animation: fade-in-up 0.6s ease-out;
+  gap: var(--space-2xl);
+  animation: content-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+@keyframes content-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* 2x2 bento grid — 2 left, 2 right, equal columns */
 .weather-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-xl);
-  align-items: start;
-}
-
-.weather-main {
-  grid-column: 1;
-}
-
-.weather-sidebar {
-  grid-column: 2;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xl);
+  gap: var(--space-lg);
+  align-items: stretch;
 }
 
 /* Empty state */
@@ -51,93 +54,121 @@
   flex-direction: column;
   gap: var(--space-2xl);
   padding: var(--space-3xl) 0;
+  align-items: center;
 }
 
 .empty-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-lg);
+  gap: var(--space-xl);
   text-align: center;
-  animation: fade-in-up 0.6s ease-out;
+  animation: content-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .empty-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
+  background: linear-gradient(135deg, rgba(91, 216, 207, 0.06), rgba(155, 127, 240, 0.06));
+  border: 1px solid rgba(255, 255, 255, 0.04);
   color: var(--accent-cool);
-  animation: float 4s ease-in-out infinite;
+  animation: float 5s ease-in-out infinite;
+  position: relative;
+}
+
+.empty-icon::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent, rgba(91, 216, 207, 0.15), transparent, rgba(155, 127, 240, 0.1), transparent);
+  animation: rotate-slow 12s linear infinite;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  padding: 1px;
 }
 
 .empty-icon svg {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
+  opacity: 0.8;
 }
 
 .empty-title {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 400;
+  font-style: italic;
   color: var(--text-primary);
   margin: 0;
+  letter-spacing: -0.01em;
 }
 
 .empty-text {
-  font-size: 1rem;
+  font-size: 0.95rem;
+  font-weight: 300;
   color: var(--text-secondary);
-  max-width: 400px;
+  max-width: 420px;
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 /* Footer */
 .footer {
-  padding: var(--space-lg) var(--space-xl);
+  padding: var(--space-xl) var(--space-2xl);
   text-align: center;
-  border-top: 1px solid var(--glass-border);
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
   background: linear-gradient(
     0deg,
-    rgba(255, 255, 255, 0.02) 0%,
+    rgba(255, 255, 255, 0.01) 0%,
     transparent 100%
   );
+  margin-top: auto;
 }
 
 .footer span {
-  font-size: 0.75rem;
-  color: var(--text-tertiary);
-  letter-spacing: 0.05em;
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: var(--text-ghost);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 /* Responsive */
-@media (max-width: 900px) {
-  .weather-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .weather-main,
-  .weather-sidebar {
-    grid-column: 1;
+@media (max-width: 1024px) {
+  .main {
+    padding: var(--space-xl) var(--space-lg);
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .main {
+    padding: var(--space-lg) var(--space-md);
+    gap: var(--space-xl);
+  }
+
+  .weather-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
   .main {
     padding: var(--space-md);
   }
 
   .empty-title {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
 
   .empty-icon {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
   }
 
   .empty-icon svg {
