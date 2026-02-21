@@ -15,9 +15,9 @@
 
   /* Text hierarchy */
   --text-primary: #f0ede8;
-  --text-secondary: rgba(240, 237, 232, 0.65);
-  --text-tertiary: rgba(240, 237, 232, 0.35);
-  --text-ghost: rgba(240, 237, 232, 0.15);
+  --text-secondary: rgba(240, 237, 232, 0.8);
+  --text-tertiary: rgba(240, 237, 232, 0.6);
+  --text-ghost: rgba(240, 237, 232, 0.45);
 
   /* Accent colors — refined meteorological palette */
   --accent-warm: #e8724a;
